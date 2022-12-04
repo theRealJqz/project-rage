@@ -1,4 +1,4 @@
-let currentEvent = 10;
+let currentEvent = 12;
 let lineCanvas;
 let ctx;
 let lineState = {
@@ -162,25 +162,26 @@ const events = {
             }
         }, {once: true})
         
-        //positions moon
+        //positions moon skyDimensions
         const moonElem = document.getElementById("loading-icon-wrapper");
+        moonElem.style.left = `${skyDimensions.width / 2 - 50}px`;
+        moonElem.style.top = `${skyDimensions.height / 2 - 50}px`;
         moonElem.classList.add("active");
         document.querySelector(".loading-icon-turned-moon").classList.add("active");
-        function getMoonDisplacement(screenAxis, moonSize, percentage){
-            return (screenAxis / 2) + (moonSize * percentage);
-        }
-        if(SmallestScreen > 800){
-            const moonSize = 900;
-            moonElem.classList.add("large");
-            moonElem.style.left = `-${getMoonDisplacement(skyDimensions.width, moonSize, 0.3)}px`
-            moonElem.style.top = `-${getMoonDisplacement(skyDimensions.height, moonSize, 0.2)}px`
-        }
-        if(SmallestScreen < 800){
-            const moonSize = 400;
-            moonElem.classList.add("small");
-            moonElem.style.left = `-${getMoonDisplacement(skyDimensions.width, moonSize, 0.3)}px`
-            moonElem.style.top = `-${getMoonDisplacement(skyDimensions.height, moonSize, 0.2)}px`
-        }
+        setTimeout(() => {
+            if(SmallestScreen > 800){
+                const moonSize = 900;
+                moonElem.classList.add("large");
+                moonElem.style.left = `-${moonSize * 0.3}px`;
+                moonElem.style.top = `-${moonSize * 0.2}px`;
+            }
+            if(SmallestScreen < 800){
+                const moonSize = 400;
+                moonElem.classList.add("small");
+                moonElem.style.left = `-${moonSize * 0.3}px`;
+                moonElem.style.top = `-${moonSize * 0.2}px`;
+            }
+        }, 150);
     }}
 }
 //puzzle
