@@ -310,7 +310,7 @@ function initializePuzzle(row, column, margin){
 
     for(let x=0; x<row; x++){
         for(let y=0; y<column; y++){
-            const img = `/resources/${x}${y}.jpg`
+            const img = `./resources/${x}${y}.jpg`
             if(x===0 && y===column-1){
                 puzzlePieces.pieces.push(new PuzzlePiece(x, y, margin, ""))
                 blankPiece_url = img;
