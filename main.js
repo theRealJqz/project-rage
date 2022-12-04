@@ -1,4 +1,4 @@
-let currentEvent = 10;
+let currentEvent = 1;
 let lineCanvas;
 let ctx;
 let lineState = {
